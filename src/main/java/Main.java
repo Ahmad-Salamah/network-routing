@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Scene scene = new Scene(root, 898, 567);
+        Scene scene = new Scene(root, 1000, 567);
 
         stage.setTitle("Networking_Routing");
         stage.setScene(scene);
