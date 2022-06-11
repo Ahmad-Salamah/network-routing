@@ -104,21 +104,14 @@ public class Controller {
     @FXML
     void setSourceNode(ActionEvent event) {
         Point point = graph.getVertices().get(Integer.parseInt(SourceNodeTF.getText())).getPoint();
-        if(sourcePoint != null){
-            sourcePoint.setFill(Color.BLACK);
-        }
-        sourcePoint = point;
-        point.setFill(Color.GREEN);
+        point.setAsSource();
+
     }
 
     @FXML
     void setTargetNode(ActionEvent event) {
         Point point = graph.getVertices().get(Integer.parseInt(TargetNodeTF.getText())).getPoint();
-        if(destinationPoint != null){
-            destinationPoint.setFill(Color.BLACK);
-        }
-        destinationPoint = point;
-        point.setFill(Color.RED);
+        point.setAsTarget();
     }
 
     @FXML
