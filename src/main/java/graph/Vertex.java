@@ -5,7 +5,27 @@ import UI.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertex {
+public class Vertex implements Comparable<Vertex>{
+    @Override
+    public String toString() {
+        if(source == null){
+            return "Vertex{" +
+                    "index=" + index +
+                    ",x=" + x +
+                    ", y=" + y +
+                    ", source=" + null +
+                    ", cost=" + cost +
+                    '}';
+        }
+        return "Vertex{" +
+                "index=" + index +
+                ",x=" + x +
+                ", y=" + y +
+                ", sourceIndex=" + source.getIndex() +
+                ", cost=" + cost +
+                '}';
+    }
+
     private int x;
     private int y;
     private List<Edge> adjacent;
