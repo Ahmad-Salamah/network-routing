@@ -56,4 +56,17 @@ public class Graph {
     }
 
 
+    @Override
+    public String toString() {
+        String s =  "Graph:\n";
+        for(int i = 0; i < vertices.size() ; i++){
+            s += i+" :\n";
+            Vertex vertex = vertices.get(i);
+            for(int j = 0 ; j < vertex.getAdj().size() ; j++){
+                Edge edge = vertex.getAdj().get(j);
+                s += "to: " + edge.getDestination().getIndex() + " at cost: " + edge.getDistance() +"\n";
+            }
+        }
+        return s;
+    }
 }
