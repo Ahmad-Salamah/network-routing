@@ -15,6 +15,11 @@ public class Edge {
 
     }
 
+    public Vertex getDestination() {
+        return destination;
+    }
 
-
+    public double getDistance() {
+        return distance;
+    }
 }
