@@ -3,7 +3,6 @@ package controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import UI.Point;
@@ -12,13 +11,12 @@ import graph.Graph;
 import graph.Vertex;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Point2D;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polyline;
 
 public class Controller {
     public static TextField source;
@@ -72,27 +70,19 @@ public class Controller {
         int seed = Integer.parseInt(SeedTF.getText());
         int size = Integer.parseInt(SizeTF.getText());
 
-        //Make a Random object based on given seed
-        Random random = new Random(seed);
-
-        //initiate the graph
-        graph = new Graph();
-
         PointClickHandler pointClickHandler = new PointClickHandler();
 
-        //Make vertices and add them to the graph
+        //make the graph
+        graph = new Graph(seed, size, pointClickHandler);
+
+        //Add all points in the graph to the UI
         for (int i = 0; i < size; i++) {
-            Vertex vertex = new Vertex(random.nextInt(820), random.nextInt(465));
-            graph.addVertix(vertex);
-            vertex.setIndex(i);
-
-            //make a GUI point for the vertex
-            Point point = new Point(vertex);
+            Point point = graph.getVertices().get(i).getPoint();
             NetworkPane.getChildren().add(point);
-            point.addEventHandler(MouseEvent.MOUSE_CLICKED, pointClickHandler);
-            vertex.setPoint(point);
-
         }
+
+
+    }
 
         //make three adjacent for every vertex
         for (int i = 0; i < size; i++) {
