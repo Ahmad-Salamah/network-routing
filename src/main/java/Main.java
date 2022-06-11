@@ -1,3 +1,4 @@
+import graph.Edge;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,10 +10,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        Scene scene = new Scene(root, 898, 567);
 
-        Scene scene = new Scene(root, 300, 275);
-
-        stage.setTitle("FXML Welcome");
+        stage.setTitle("Networking_Routing");
         stage.setScene(scene);
         stage.show();
     }
