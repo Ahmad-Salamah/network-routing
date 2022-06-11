@@ -55,6 +55,12 @@ public class Graph {
         this.vertices.add(vertex);
     }
 
+    public void resetPath(){
+        for(int i = 0 ; i < vertices.size() ; i++){
+            Vertex vertex = vertices.get(i);
+            vertex.resetPath();
+        }
+    }
 
     @Override
     public String toString() {
