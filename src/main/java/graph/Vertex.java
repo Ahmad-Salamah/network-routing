@@ -34,6 +34,35 @@ public class Vertex implements Comparable<Vertex>{
 
     private int index;
 
+    private Vertex source;
+    private double cost;
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public Vertex getSource() {
+        return source;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public boolean isVisited() {
+        return isVisited;
+    }
+
+    public void setSource(Vertex source) {
+        this.source = source;
+    }
+
+    public void setVisited(boolean visited) {
+        isVisited = visited;
+    }
+
+    private boolean isVisited;
+
     public int getIndex() {
         return index;
     }
@@ -54,6 +83,8 @@ public class Vertex implements Comparable<Vertex>{
         this.x = x;
         this.y = y;
         adjacent = new ArrayList<>();
+        isVisited = false;
+        cost = Double.MAX_VALUE;
     }
 
     public int getX() {
@@ -71,5 +102,17 @@ public class Vertex implements Comparable<Vertex>{
     public void addEdge(Vertex adj){
         Edge edge = new Edge(this , adj);
         this.adjacent.add(edge);
+    }
+
+
+    @Override
+    public int compareTo(Vertex o) {
+        return Double.compare(this.getCost() , o.getCost());
+    }
+
+    public void resetPath() {
+        this.isVisited = false;
+        this.source = null;
+        this.cost = Double.MAX_VALUE;
     }
 }
