@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import UI.Arrow;
 import UI.Point;
 import UI.PointClickHandler;
+import dijkstra.Dijkstra;
 import graph.Graph;
 import graph.Vertex;
 import javafx.event.ActionEvent;
@@ -32,7 +34,8 @@ public class Controller {
 
     @FXML
     private URL location;
-
+    @FXML
+    private CheckBox ShowEdges;
     @FXML
     private Pane NetworkPane;
 
@@ -84,19 +87,26 @@ public class Controller {
 
     }
 
-        //make three adjacent for every vertex
-        for (int i = 0; i < size; i++) {
-            Vertex vertex = graph.getVertices().get(i);
-            for (int j = 0; j < 3; j++) {
-                List<Integer> adjacent = new ArrayList<>();
-                int edgeIndex = random.nextInt(size);
-                //make sure the destination vertix is not the same as the source
-                //make sure it does not repeat the same adjacent twice
-                while (edgeIndex == i || adjacent.contains(edgeIndex)) {
-                    edgeIndex = random.nextInt(size);
+    @FXML
+    void selectShowEdges(ActionEvent event) {
+        int size = Integer.parseInt(SizeTF.getText());
+        if (ShowEdges.isSelected()) {
+            for (int i = 0; i < size; i++) {
+                Vertex vertex = graph.getVertices().get(i);
+
+                for (int j = 0; j < vertex.getAdj().size(); j++) {
+                    Vertex adj = vertex.getAdj().get(j).getDestination();
+                    Arrow arrow = new Arrow(vertex.getX(), vertex.getY(), adj.getX(), adj.getY());
+                    arrow.setHeadAVisible(false);
+                    NetworkPane.getChildren().add(arrow);
                 }
-                adjacent.add(edgeIndex);
-                vertex.addEdge(graph.getVertices().get(edgeIndex));
+
+            }
+        }else {
+            NetworkPane.getChildren().clear();
+            for (int i = 0; i < size; i++) {
+                Point point = graph.getVertices().get(i).getPoint();
+                NetworkPane.getChildren().add(point);
             }
         }
     }
