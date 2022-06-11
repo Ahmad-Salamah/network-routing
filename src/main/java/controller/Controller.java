@@ -62,8 +62,44 @@ public class Controller {
 
     @FXML
     void ComputeCost(ActionEvent event) {
+        int size = Integer.parseInt(SizeTF.getText());
+        NetworkPane.getChildren().clear();
+        for (int i = 0; i < size; i++) {
+            Point point = graph.getVertices().get(i).getPoint();
+            NetworkPane.getChildren().add(point);
+        }
+        selectShowEdges(event);
 
+        Vertex source = sourcePoint.getVertex();
+        Vertex target = destinationPoint.getVertex();
+        graph.resetPath();
+        Dijkstra.compute(source, target);
+
+
+        System.out.println(graph);
+        System.out.println(Dijkstra.getPath(source, target));
+
+        List <Vertex> path =Dijkstra.getPath(source, target);
+
+
+        if(path!= null) {
+            for (int i = 0; i < path.size() - 1; i++) {
+                Arrow arrow = new Arrow(path.get(i).getX(), path.get(i).getY(), path.get(i + 1).getX(), path.get(i + 1).getY());
+
+                arrow.getMainLine().setStroke(Color.CYAN);
+                arrow.getHeadB().setStroke(Color.CYAN);
+                arrow.setHeadAVisible(false);
+                NetworkPane.getChildren().addAll(arrow);
+
+            }
+
+            TotalPathCostTF.setText((int) path.get(path.size() - 1).getCost() + "");
+        }
+        else {
+            TotalPathCostTF.setText("Unreachable");
+        }
     }
+
 
     @FXML
     void Generate(ActionEvent event) {
