@@ -11,15 +11,8 @@ import java.util.PriorityQueue;
 public class Dijkstra {
     public static void compute(Vertex source, Vertex target) {
         PriorityQueue<Vertex> queue = new PriorityQueue<>();
-        source.setVisited(true);
         source.setCost(0);
-        for(int i = 0 ; i < source.getAdj().size() ; i++){
-            Vertex adj = source.getAdj().get(i).getDestination();
-            double cost = source.getAdj().get(i).getDistance();
-            adj.setCost(cost);
-            adj.setSource(source);
-            queue.add(adj);
-        }
+        queue.add(source);
         while (!queue.isEmpty() && !target.isVisited()){
             Vertex vertex = queue.poll();
             vertex.setVisited(true);

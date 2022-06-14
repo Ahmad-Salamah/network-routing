@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a915a51f-d7f1-4e2c-8b1a-fa12f9d9d0d1" name="Changes" comment="Implemented UI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/Arrow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dijkstra/Dijkstra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PointClickHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PointClickHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graph/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graph/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dijkstra/Dijkstra.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,15 +35,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/SceneBuilder/SceneBuilder.exe&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -80,6 +70,7 @@
       <updated>1654893944097</updated>
       <workItem from="1654893945452" duration="14824000" />
       <workItem from="1654934016059" duration="25007000" />
+      <workItem from="1655202510573" duration="303000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1654894380049</created>
@@ -111,6 +102,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
@@ -122,7 +114,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dijkstra/Dijkstra.java</url>
-          <line>44</line>
+          <line>37</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
