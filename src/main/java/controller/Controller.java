@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +16,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
+
+import javax.swing.*;
+
+import static javafx.application.Platform.exit;
 
 public class Controller {
     public static TextField source;
@@ -79,23 +85,29 @@ public class Controller {
         System.out.println(graph);
         System.out.println(Dijkstra.getPath(source, target));
 
-        List <Vertex> path =Dijkstra.getPath(source, target);
+        List<Vertex> path = Dijkstra.getPath(source, target);
 
 
-        if(path!= null) {
+        if (path != null) {
             for (int i = 0; i < path.size() - 1; i++) {
                 Arrow arrow = new Arrow(path.get(i).getX(), path.get(i).getY(), path.get(i + 1).getX(), path.get(i + 1).getY());
 
                 arrow.getMainLine().setStroke(Color.CYAN);
+                arrow.getMainLine().setStrokeWidth(5.0f);
                 arrow.getHeadB().setStroke(Color.CYAN);
+                Label l = new Label();
+                l.setText((int) path.get(i + 1).getPoint().getVertex().getCost() + "");
+                l.setLayoutX(arrow.getX2());
+                l.setLayoutY(arrow.getY2());
                 arrow.setHeadAVisible(false);
+                NetworkPane.getChildren().add(l);
+
                 NetworkPane.getChildren().addAll(arrow);
 
             }
 
             TotalPathCostTF.setText((int) path.get(path.size() - 1).getCost() + "");
-        }
-        else {
+        } else {
             TotalPathCostTF.setText("Unreachable");
         }
     }
@@ -109,6 +121,11 @@ public class Controller {
         int seed = Integer.parseInt(SeedTF.getText());
         int size = Integer.parseInt(SizeTF.getText());
 
+        if (size > (int)(NetworkPane.getWidth()*NetworkPane.getHeight())/36) {
+            Component f = null;
+            JOptionPane.showMessageDialog(f,"too much network routers the size should be less then ="+(NetworkPane.getWidth()*NetworkPane.getHeight())/36);
+            exit();
+        }
         PointClickHandler pointClickHandler = new PointClickHandler();
 
         //make the graph
@@ -138,7 +155,7 @@ public class Controller {
                 }
 
             }
-        }else {
+        } else {
             NetworkPane.getChildren().clear();
             for (int i = 0; i < size; i++) {
                 Point point = graph.getVertices().get(i).getPoint();
